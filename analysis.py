@@ -26,34 +26,29 @@ def question2():
     return answerDiscount, answerNoise
 
 def question3a():
-    answerDiscount = 0.45
-    answerNoise = 0.1
-    answerLivingReward = -5
+    answerDiscount = 0.5
+    answerNoise = 0.2
+    answerLivingReward = -3
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
 def question3b():
-
-    answerDiscount = 0.3
-    answerNoise = 0.3
-    answerLivingReward = -0.5
+    answerDiscount = 0.25
+    answerNoise = 0.25
+    answerLivingReward = -0.4
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
 def question3c():
-    answerDiscount = 0.75
+    answerDiscount = 0.8
     answerNoise = 0
     answerLivingReward = 0
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
 def question3d():
 
-    answerDiscount = .75
-    answerNoise = .25
-    answerLivingReward = -0.5
+    answerDiscount = .7
+    answerNoise = .3
+    answerLivingReward = -0.4
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
 def question3e():
     answerDiscount = 0
@@ -66,12 +61,10 @@ def question8():
     answerEpsilon = None
     answerLearningRate = None
     # return answerEpsilon, answerLearningRate
-    return 'NOT POSSIBLE'
     # If not possible, return 'NOT POSSIBLE'
+    return 'NOT POSSIBLE'
 
 if __name__ == '__main__':
-    print('Answers to analysis questions:')
     import analysis
     for q in [q for q in dir(analysis) if q.startswith('question')]:
         response = getattr(analysis, q)()
-        print('  Question %s:\t%s' % (q, str(response)))
