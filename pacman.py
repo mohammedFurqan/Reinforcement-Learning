@@ -304,12 +304,12 @@ class ClassicGameRules:
 
     def win(self, state, game):
         if not self.quiet:
-            print("Pacman emerges victorious! Score: %d" % state.data.score)
+            print(("Pacman emerges victorious! Score: %d" % state.data.score))
         game.gameOver = True
 
     def lose(self, state, game):
         if not self.quiet:
-            print("Pacman died! Score: %d" % state.data.score)
+            print(("Pacman died! Score: %d" % state.data.score))
         game.gameOver = True
 
     def getProgress(self, game):
@@ -609,7 +609,7 @@ def readCommand(argv):
 
     # Special case: recorded games don't use the runGames method or args structure
     if options.gameToReplay != None:
-        print('Replaying recorded game %s.' % options.gameToReplay)
+        print(('Replaying recorded game %s.' % options.gameToReplay))
         import pickle
         f = open(options.gameToReplay)
         try:
@@ -709,12 +709,12 @@ def runGames(layout, pacman, ghosts, display, numGames, record, numTraining=0, c
         scores = [game.state.getScore() for game in games]
         wins = [game.state.isWin() for game in games]
         winRate = wins.count(True) / float(len(wins))
-        print('Average Score:', sum(scores) / float(len(scores)))
-        print('Scores:       ', ', '.join([str(score) for score in scores]))
-        print('Win Rate:      %d/%d (%.2f)' %
-              (wins.count(True), len(wins), winRate))
-        print('Record:       ', ', '.join(
-            [['Loss', 'Win'][int(w)] for w in wins]))
+        print(('Average Score:', sum(scores) / float(len(scores))))
+        print(('Scores:       ', ', '.join([str(score) for score in scores])))
+        print(('Win Rate:      %d/%d (%.2f)' %
+              (wins.count(True), len(wins), winRate)))
+        print(('Record:       ', ', '.join(
+            [['Loss', 'Win'][int(w)] for w in wins])))
 
     return games
 

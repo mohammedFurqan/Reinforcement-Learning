@@ -495,8 +495,8 @@ def raiseNotDefined():
     line = inspect.stack()[1][2]
     method = inspect.stack()[1][3]
 
-    print("*** Method not implemented: %s at line %s of %s" %
-          (method, line, fileName))
+    print(("*** Method not implemented: %s at line %s of %s" %
+          (method, line, fileName)))
     sys.exit(1)
 
 
@@ -663,7 +663,7 @@ def pause():
     Pauses the output stream awaiting user feedback.
     """
     print("<Press enter/return to continue>")
-    input()
+    eval(input())
 
 
 # code to handle timeouts

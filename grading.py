@@ -47,7 +47,7 @@ class Grades:
         self.prereqs = defaultdict(set)
 
         # print 'Autograder transcript for %s' % self.project
-        print('Starting on %d-%d at %d:%02d:%02d' % self.start)
+        print(('Starting on %d-%d at %d:%02d:%02d' % self.start))
 
     def addPrereq(self, question, prereq):
         self.prereqs[question].add(prereq)
@@ -60,17 +60,17 @@ class Grades:
 
         completedQuestions = set([])
         for q in self.questions:
-            print('\nQuestion %s' % q)
-            print('=' * (9 + len(q)))
+            print(('\nQuestion %s' % q))
+            print(('=' * (9 + len(q))))
             print()
             self.currentQuestion = q
 
             incompleted = self.prereqs[q].difference(completedQuestions)
             if len(incompleted) > 0:
                 prereq = incompleted.pop()
-                print("""*** NOTE: Make sure to complete Question %s before working on Question %s,
+                print(("""*** NOTE: Make sure to complete Question %s before working on Question %s,
 *** because Question %s builds upon your answer for Question %s.
-""" % (prereq, q, q, prereq))
+""" % (prereq, q, q, prereq)))
                 continue
 
             if self.mute:
@@ -91,17 +91,17 @@ class Grades:
             if self.points[q] >= self.maxes[q]:
                 completedQuestions.add(q)
 
-            print('\n### Question %s: %d/%d ###\n' %
-                  (q, self.points[q], self.maxes[q]))
+            print(('\n### Question %s: %d/%d ###\n' %
+                  (q, self.points[q], self.maxes[q])))
 
-        print('\nFinished at %d:%02d:%02d' % time.localtime()[3:6])
+        print(('\nFinished at %d:%02d:%02d' % time.localtime()[3:6]))
         print("\nProvisional grades\n==================")
 
         for q in self.questions:
-            print('Question %s: %d/%d' % (q, self.points[q], self.maxes[q]))
+            print(('Question %s: %d/%d' % (q, self.points[q], self.maxes[q])))
         print('------------------')
-        print('Total: %d/%d' %
-              (self.points.totalCount(), sum(self.maxes.values())))
+        print(('Total: %d/%d' %
+              (self.points.totalCount(), sum(self.maxes.values()))))
         if bonusPic and self.points.totalCount() == 25:
             print("""
 
@@ -295,14 +295,14 @@ to follow your instructor's guidelines to receive credit on your project.
                 # We assume raw messages, formatted for HTML, are printed separately
             if self.mute:
                 util.unmutePrint()
-            print('*** ' + message)
+            print(('*** ' + message))
             if self.mute:
                 util.mutePrint()
             message = cgi.escape(message)
         self.messages[self.currentQuestion].append(message)
 
     def addMessageToEmail(self, message):
-        print("WARNING**** addMessageToEmail is deprecated %s" % message)
+        print(("WARNING**** addMessageToEmail is deprecated %s" % message))
         for line in message.split('\n'):
             pass
             # print '%%% ' + line + ' %%%'
